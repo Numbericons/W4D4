@@ -1,0 +1,18 @@
+<h2>Sign Up or Log In Below.</h2>
+<p>...Or Neither! I'll wait.</p>
+
+<form class='form' action="<%= session_url%>" method="post">
+
+    <input type="hidden" name="authenticity_token" value=" <%=form_authenticity_token %>">
+
+    <label for="new-user-email">Email</label>
+    <input id="new-user-email" type="text" name="user[email]">
+    <br>
+
+    <label for="new-user_password">Password</label>
+    <input id="new-user-password" type="password" name="user[password]">
+
+    <input type="submit">
+</form>
+<br>
+<a class='button' href=<%=new_user_url %> >Sign Up (the egg comes before the chicken)!</a>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Zmusic</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <h1>Welcome to Zmusic!</h1>
+    <p>We host no audio files, and limited information!</p>
+    <br>
+  </head>
+
+    <%if logged_in? %>
+      <div class='user-detail'>
+        <p> You are a fraud or your e-mail is: <%= current_user.email %></p>
+      <form action=<%= session_url %> method='post'>
+        <input type="hidden" name="_method" value="delete">
+        <input type="hidden" name="authenticity_token" value="<%=form_authenticity_token %>">
+        <input type="submit" value="Sign out? Like a rat from a sinking ship?">
+      </form>
+      </div>
+    <% end %>
+  <body>
+    <%= yield %>
+  </body>
+</html>
